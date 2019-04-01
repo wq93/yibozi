@@ -1,0 +1,6 @@
+node_modules/
+.next/
+.vscode/
+.DS_Store
+.idea/
+config.js
