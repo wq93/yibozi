@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {config} = require('../utils')
+const {config} = require('.')
 const db = mongoose.connection;
 const uri = `mongodb+srv://${config.MongoDB.username}:${config.MongoDB.password}@cluster0-w5bwk.mongodb.net`;
 const database = config.MongoDB.database;

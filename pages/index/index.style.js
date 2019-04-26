@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
   .test {
-    color: aqua;
+    color: red;
+    font-size: 18px;
   }
 `;
