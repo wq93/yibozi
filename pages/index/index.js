@@ -2,8 +2,10 @@ import React, { Fragment } from 'react';
 import { Button } from 'antd';
 import Link from 'next/link';
 import Head from 'next/head';
+
+import Style from './index.style'
 const Home = () => (
-  <Fragment>
+  <Style>
     <Head>
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <meta charSet='utf-8' />
@@ -15,7 +17,8 @@ const Home = () => (
       <Link href='/userList'>
         <Button type='primary'>用户列表页</Button>
       </Link>
+      <p className='test'>你好</p>
     </Fragment>
-  </Fragment>
+  </Style>
 );
 export default Home;
