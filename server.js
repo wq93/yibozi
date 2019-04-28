@@ -4,7 +4,7 @@ const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 const serve = require('koa-static');
 
-const db = require('./server/utils/db');
+// const db = require('./server/utils/db');
 const port = parseInt(process.env.PORT, 10) || 8000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({dev})
