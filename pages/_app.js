@@ -3,6 +3,8 @@ import React from 'react';
 import {ThemeProvider} from 'styled-components';
 import {Provider} from 'react-redux';
 import withRedux from 'next-redux-wrapper';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 
 import {GlobalStyle, defaultTheme} from '../utils';
 import initStore from '../store';
@@ -20,7 +22,10 @@ export default withRedux(initStore)(
     }
 
     render() {
-      const {Component, pageProps, store} = this.props
+      Router.onRouteChangeStart = () => NProgress.start();
+      Router.onRouteChangeComplete = () => NProgress.done();
+      Router.onRouteChangeError = () => NProgress.done();
+      const {Component, pageProps, store} = this.props;
       return (
         <ThemeProvider theme={defaultTheme}>
           <Container>
@@ -31,6 +36,5 @@ export default withRedux(initStore)(
           </Container>
         </ThemeProvider>
       )
-
     }
   })

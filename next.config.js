@@ -1,8 +1,15 @@
 const withCss = require('@zeit/next-css');
 
-// fix: prevents error when .css files are required by node
-if (typeof require !== 'undefined') {
-  require.extensions['.css'] = (file) => {}
-}
+module.exports = withCss({
+  webpack(config) {
+    if (process.env.NODE_ENV === 'development') {
+      config.module.rules.push({
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      });
+    }
 
-module.exports = withCss();
+    return config;
+  }
+});

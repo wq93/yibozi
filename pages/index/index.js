@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Layout} from '../../containers';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 
 import Style from './index.style';
@@ -11,7 +11,7 @@ class Index extends Component {
   }
 
   render() {
-    const { testList } = this.props;
+    const {testList} = this.props;
     return (
       <Layout>
         <Style>
