@@ -2,7 +2,7 @@
   "name": "yibozi",
   "version": "1.0.0",
   "scripts": {
-    "dev": "server.js",
+    "dev": "nodemon server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
@@ -19,6 +19,7 @@
     "mongoose": "^5.4.20",
     "next": "latest",
     "nodemon": "^1.18.10",
+    "normalize.css": "^8.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.2.0"

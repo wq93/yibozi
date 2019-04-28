@@ -14,7 +14,9 @@ class Layout extends Component {
     return (
       <Styled>
         <Header></Header>
-        {children}
+        <div id='main-content'>
+          {children}
+        </div>
         <Footer></Footer>
       </Styled>
     );
