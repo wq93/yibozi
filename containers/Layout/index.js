@@ -1,4 +1,6 @@
 import { Component } from 'react';
+
+import { Header, Footer } from '../../components'
 import Styled from './index.style';
 
 class Layout extends Component {
@@ -8,11 +10,12 @@ class Layout extends Component {
 
 
   render () {
+    const { children } = this.props;
     return (
       <Styled>
-        <header>
-          header
-        </header>
+        <Header></Header>
+        {children}
+        <Footer></Footer>
       </Styled>
     );
   }
