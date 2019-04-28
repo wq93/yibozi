@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import { Header, Footer } from '../../components'
+import { Header, Footer } from '../../components';
 import Styled from './index.style';
 
 class Layout extends Component {

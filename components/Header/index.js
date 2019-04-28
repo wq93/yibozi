@@ -1,13 +1,12 @@
-import { Component } from 'react';
 import Styled from './index.style';
 
-const Header = ({props}) => {
+const Header = () => {
   return (
     <Styled>
       Header
     </Styled>
-  )
-}
+  );
+};
 
 
 export default Header;

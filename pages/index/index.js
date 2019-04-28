@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import {Layout} from '../../containers';
 import {connect} from 'react-redux';
 
@@ -7,7 +7,7 @@ import Style from './index.style';
 
 class Index extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
@@ -18,7 +18,7 @@ class Index extends Component {
           {testList.join(',')}
         </Style>
       </Layout>
-    )
+    );
   }
 }
 

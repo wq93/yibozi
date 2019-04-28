@@ -1,6 +1,6 @@
 import { createAction, handleAction } from 'redux-actions';
 
-const setTest = createAction('SET_TEST');
+const setTest = createAction('SET_TEST')
 
 export default handleAction(
   setTest,

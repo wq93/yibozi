@@ -12,4 +12,4 @@ export  default styled.div`
    footer {
     height: 82px;
    }
-`
+`;
