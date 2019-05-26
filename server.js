@@ -8,7 +8,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
 
-require('./server/utils/db');
+// require('./server/utils/db');
 
 app.prepare().then(() => {
   const server = new Koa();
