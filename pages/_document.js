@@ -32,7 +32,6 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0" />
-          <title>YIBOZI</title>
           <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon" />
         </Head>
         <body className="custom_class">

@@ -1,11 +1,15 @@
 import {Layout} from '../../containers';
 import {connect} from 'react-redux';
+import Head from 'next/head';
 
 import Style from './index.style';
 
 const Index = ({ testList }) => {
   return (
     <Layout>
+      <Head>
+        <title>YIBOZI</title>
+      </Head>
       <Style>
         { testList.join(',') }
       </Style>
