@@ -1,4 +1,4 @@
-const {GoodsMolel} = require('../models')
+const {GoodsMolel} = require('../../models');
 
 module.exports = async (ctx) => {let list = await GoodsMolel.find();
   try{
@@ -8,7 +8,7 @@ module.exports = async (ctx) => {let list = await GoodsMolel.find();
         list,
         msg:''
       }
-    }
+    };
   }catch (e) {
     ctx.state = {
       code: -1,
@@ -16,6 +16,6 @@ module.exports = async (ctx) => {let list = await GoodsMolel.find();
         errorInfo: e,
         msg: '失败'
       },
-    }
+    };
   }
-}
+};

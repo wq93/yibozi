@@ -3,7 +3,7 @@
  */
 module.exports = async function (ctx, next) {
   try {
-    ctx.res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080")
+    ctx.res.setHeader("Access-Control-Allow-Origin", '*');
     // 调用下一个 middleware
     await next()
     // 处理响应结果

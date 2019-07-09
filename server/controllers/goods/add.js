@@ -1,11 +1,10 @@
-const {GoodsMolel} = require('../models')
-const {common} = require('../utils')
+const {GoodsMolel} = require('../../models');
+const {common} = require('../../utils');
 const findCollectionData = common.findCollectionData;
 
 module.exports = async (ctx) => {
-  const {displayName} = ctx.request.body
-  const uuid = `good_${Date.now()}`
-
+  const {displayName} = ctx.request.body;
+  const uuid = `good_${Date.now()}`;
   try {
     if (displayName) {
       // 避免重复添加
@@ -16,25 +15,25 @@ module.exports = async (ctx) => {
           data: {
             msg: '已存在'
           }
-        }
-        return false
+        };
+        return false;
       } else {
         // 创建新数据
-        let good = new GoodsMolel({displayName, uuid})
-        await good.save()
+        let good = new GoodsMolel({displayName, uuid});
+        await good.save();
         ctx.state = {
           code: 0,
           data: {
             good,
             msg: 'success',
           }
-        }
+        };
       }
     } else {
       ctx.state = {
         code: -2,
         data: {msg: '参数不正确'},
-      }
+      };
     }
   } catch (e) {
     ctx.state = {
@@ -43,6 +42,6 @@ module.exports = async (ctx) => {
         errorInfo: e,
         msg: '失败'
       },
-    }
+    };
   }
-}
+};
