@@ -5,13 +5,14 @@ import Head from 'next/head';
 import Style from './index.style';
 
 const Index = ({ testList }) => {
+  console.log('redux', testList);
   return (
     <Layout>
       <Head>
         <title>YIBOZI</title>
       </Head>
       <Style>
-        { testList.join(',') }
+
       </Style>
     </Layout>
   );

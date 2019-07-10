@@ -1,22 +1,20 @@
 const Koa = require('koa');
 const next = require('next');
-const Router = require('./server/routes');
-const response = require('./server/middlewares/reponse');
-const bodyParser = require('koa-bodyparser');
-const serve = require('koa-static');
+const Router = require('koa-router');
 const port = parseInt(process.env.PORT, 10) || 8000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
-const db = require('./server/utils/db');
+// const db = require('./server/utils/db');
 
 // 连接线上MongoDB数据库
-db.connect();
+// db.connect();
 
 app.prepare().then(() => {
   const server = new Koa();
+  const router = new Router();
 
-  Router.get('*', async ctx => {
+  router.get('*', async ctx => {
     await handle(ctx.req, ctx.res);
     ctx.respond = false;
   });
@@ -26,11 +24,8 @@ app.prepare().then(() => {
       ctx.res.statusCode = 200;
       await next();
     })
-    .use(serve('public'))
-    .use(response)
-    .use(bodyParser())// 解析请求体
-    .use(Router.routes())
+    .use(router.routes())
     .listen(port, () => {
-      console.log(`> Ready on PORT:${port}`);
+      console.log(`> App running on PORT:${port}`);
     });
 });
