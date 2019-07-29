@@ -33,7 +33,7 @@ app.prepare().then(() => {
     .use(bodyParser())// 解析请求体
     .use(router.routes())
     .listen(port, () => {
-      console.log(`> Ready on PORT:${port}`);
+      console.log(`> app running at PORT:${port}`);
     });
 
 });
