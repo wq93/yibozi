@@ -3,7 +3,7 @@ import Styled from './index.style';
 const Header = () => {
   return (
     <Styled>
-      Footer
+      wangqi @2019
     </Styled>
   );
 };

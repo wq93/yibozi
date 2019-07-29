@@ -14,6 +14,8 @@ export default createGlobalStyle`
   body {
     scroll-behavior: smooth;
     transition: all .3s;
+    width: 100%;
+    height: 100%;
   }
 
   * {
