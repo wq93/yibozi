@@ -1,19 +1,17 @@
-const router = require('koa-router')({prefix: '/rest'});
+const Router = require('koa-router');
 const controllers = require('../controllers');
-
-
-// router.get('/users', controllers.users)
+const router = new Router();
 
 /* 查找商品 */
-router.get('/goods', controllers.goods.list);
+router.get('/api/goods', controllers.goods.list);
 
 /* 添加商品 */
-router.post('/goods', controllers.goods.add);
+router.post('/api/goods', controllers.goods.add);
 
 /* 修改商品 */
-router.put('/goods/:uuid', controllers.goods.update);
+router.put('/api/goods/:uuid', controllers.goods.update);
 
 /* 删除商品 */
-router.delete('/goods/:uuid', controllers.goods.delete);
+router.delete('/api/goods/:uuid', controllers.goods.delete);
 
 module.exports = router;
