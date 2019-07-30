@@ -6,16 +6,16 @@ import {
 } from 'axios-extensions';
 import NProgress from 'nprogress';
 
-import { apiConfig, isServer } from '../utils';
+import {apiConfig, isServer} from '../utils';
 import '../node_modules/nprogress/nprogress.css';
 
-NProgress.configure({ showSpinner: false });
+NProgress.configure({showSpinner: false});
 
 const instance = axios.create({
   timeout: 60000,
   baseURL: apiConfig.baseURL,
   headers: {
-    post: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    post: {'Content-Type': 'application/x-www-form-urlencoded'},
   },
   /**
    * throttleAdapterEnhancer(): 将请求进行缓存，默认缓存五分钟
@@ -26,13 +26,16 @@ const instance = axios.create({
   })),
 });
 
-instance.interceptors.request.use( request => {
-  if (!isServer) {
+instance.interceptors.request.use(
+  request => {
+    !isServer && NProgress.start();
+    return request;
+  },
+  error => {
     !isServer && NProgress.done();
-    NProgress.start();
+    return Promise.reject(error);
   }
-  return request;
-});
+);
 
 instance.interceptors.response.use(
   response => {
