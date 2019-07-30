@@ -1,6 +1,7 @@
 const {GoodsMolel} = require('../../models');
 
-module.exports = async (ctx) => {let list = await GoodsMolel.find();
+module.exports = async (ctx) => {
+  let list = await GoodsMolel.find();
   try{
     ctx.body = {
       code: 0,

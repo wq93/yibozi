@@ -14,4 +14,7 @@ router.put('/api/goods/:uuid', controllers.goods.update);
 /* 删除商品 */
 router.delete('/api/goods/:uuid', controllers.goods.delete);
 
+/* navigation */
+router.get('/api/navigation', controllers.navigation.list );
+
 module.exports = router;
