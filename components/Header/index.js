@@ -1,3 +1,4 @@
+import { Avatar } from 'antd';
 import Styled from './index.style';
 
 const Header = () => {
@@ -10,7 +11,9 @@ const Header = () => {
         </div>
         <div className="header-footer"></div>
       </div>
-      <div className="header-navigation"></div>
+      <div className="header-navigation">
+        <Avatar size={64} icon="user" />
+      </div>
     </Styled>
   );
 };
