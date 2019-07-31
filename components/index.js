@@ -4,6 +4,7 @@
  * 请使用此文件来引入你需要的 containers
  *
  */
-export { default as Header } from './Header';
+export { default as DeskTopHeader } from './DeskTopHeader';
+export { default as DeskTopNav } from './DeskTopNav';
 export { default as Footer } from './Footer';
 

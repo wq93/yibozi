@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.header`
-   
    .header-operate {
      display: flex;
      justify-content: space-between;
@@ -13,5 +12,8 @@ export default styled.header`
       margin: 0 auto;
       cursor: pointer;
     }
+  }
+  .header-navigation {
+    text-align: center;
   }
 `;

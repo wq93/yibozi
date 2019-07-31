@@ -1,10 +1,10 @@
-import { Header, Footer } from '../../components';
+import { DeskTopHeader, Footer } from '../../components';
 import Styled from './index.style';
 
 const Layout = ({ children }) => {
   return (
     <Styled>
-      <Header />
+      <DeskTopHeader />
       <div id='main-content'>
         {children}
       </div>
