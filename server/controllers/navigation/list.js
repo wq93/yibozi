@@ -13,14 +13,22 @@ module.exports = async (ctx) => {
     {
       id: 2,
       parent_id: 0,
-      name: '文章',
+      name: '博文',
       child: [
-        { id: 2,
-          parent_id: 21,
+        { id: 2001,
+          parent_id: 2,
           key:'article/live',
           name: '生活',
           path: '/article/live',
           asPath:'/article/live',
+          child: []
+        },
+        { id: 2002,
+          parent_id: 2,
+          key:'article/skill',
+          name: '技术',
+          path: '/article/skill',
+          asPath:'/article/skill',
           child: []
         }
       ]

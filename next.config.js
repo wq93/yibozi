@@ -37,7 +37,6 @@ module.exports = withCss({
 
     return config;
   },
-
   generateBuildId: () => {
     // 使用最后一次提交的 hash 作为构建的 id
     const data = require('child_process')

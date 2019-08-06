@@ -56,7 +56,7 @@ export default withRouter(connect( mapStateToProps )( DeskTopNav ));
  * @prop navigation 导航集合
  * @prop router 当前页面的路由数据
  */
-DeskTopNav.PropTypes = {
-  navigation:PropTypes.array,
-  router:PropTypes.object,
+DeskTopNav.propTypes = {
+  navigation: PropTypes.array,
+  router: PropTypes.object,
 };
