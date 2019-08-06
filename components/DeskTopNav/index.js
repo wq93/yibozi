@@ -1,41 +1,40 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Menu } from 'antd';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
-
 
 import Styled from './index.style';
 
 const { SubMenu, Item, ItemGroup } = Menu;
 
 const DeskTopNav = ({ navigation, router }) => {
-  const [current, setCurrent] = useState(router.pathname);
-  const handleClick = event => setCurrent(event.key);
+  // 清除asPath的首字符'/'
+  const [current, setCurrent] = useState(router.asPath.substr(1));
 
   const renderNav = () => {
     const renderMenu = (menus) => {
       return menus.map(menu => {
-        if(menu.child.length > 0){
-          return  <SubMenu title={ menu.name } key={ `/${menu.key}` }>
-            <ItemGroup>{ renderMenu(menu.child)}</ItemGroup>
+        const { child, name, key, asPath, path } = menu;
+        if(child.length > 0){
+          return  <SubMenu title={ name } key={ key }>
+            <ItemGroup>{ renderMenu(child)}</ItemGroup>
           </SubMenu>;
         }else{
-          return <Item key={ `/${menu.key}` }>
-            <Link href={ menu.path } as={ menu.asPath }><a>{ menu.name }</a></Link>
+          return <Item key={ key }>
+            <Link href={ path } as={ asPath }><a>{ name }</a></Link>
           </Item>;
         }
       });
     };
 
     return (
-      <Menu onClick={ handleClick } mode="horizontal" selectedKeys={[current]} >
+      <Menu onClick={ event => setCurrent(event.key) } mode="horizontal" selectedKeys={[current]} >
         { renderMenu(navigation) }
       </Menu>
     );
   };
-
 
   return (
     <Styled>
@@ -52,3 +51,12 @@ function mapStateToProps(state){
 }
 
 export default withRouter(connect( mapStateToProps )( DeskTopNav ));
+
+/**
+ * @prop navigation 导航集合
+ * @prop router 当前页面的路由数据
+ */
+DeskTopNav.PropTypes = {
+  navigation:PropTypes.array,
+  router:PropTypes.object,
+};

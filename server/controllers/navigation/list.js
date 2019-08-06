@@ -17,7 +17,7 @@ module.exports = async (ctx) => {
       child: [
         { id: 2,
           parent_id: 21,
-          key:'normal',
+          key:'article/live',
           name: '生活',
           path: '/article/live',
           asPath:'/article/live',
