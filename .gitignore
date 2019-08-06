@@ -4,3 +4,4 @@ node_modules/
 .DS_Store
 .idea/
 config.js
+server/utils/db.js
