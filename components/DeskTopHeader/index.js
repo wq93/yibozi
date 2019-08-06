@@ -12,7 +12,7 @@ const Header = () => {
         </div>
         <div className="header-footer"></div>
       </div>
-      <DeskTopNav></DeskTopNav>
+      <DeskTopNav/>
     </Styled>
   );
 };

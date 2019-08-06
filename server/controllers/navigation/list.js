@@ -5,27 +5,42 @@ module.exports = async (ctx) => {
       id: 1,
       parent_id: 0,
       name: '首页',
-      path: '/home',
+      key:'home',
+      path: '/',
+      asPath:'/home',
       child: []
     },
     {
       id: 2,
       parent_id: 0,
       name: '文章',
-      path: '/article',
       child: [
         { id: 2,
           parent_id: 21,
-          name: '日常',
-          path: '/article/normal',
+          key:'normal',
+          name: '生活',
+          path: '/article/live',
+          asPath:'/article/live',
+          child: []
         }
       ]
     },
     {
       id: 3,
       parent_id: 0,
-      name: '首页',
-      path: '/home',
+      name: '图片',
+      key:'picture',
+      path: '/picture',
+      asPath:'/picture',
+      child: []
+    },
+    {
+      id: 4,
+      parent_id: 0,
+      name: '小视频',
+      key:'video',
+      path: '/video',
+      asPath:'/video',
       child: []
     },
   ];

@@ -18,6 +18,11 @@ db.connect();
 app.prepare().then(() => {
   const server = new Koa();
 
+  router.get('/', async ctx => {
+    await app.render(ctx.req, ctx.res, '/home', ctx.query);
+    ctx.respond = false;
+  });
+
   router.get('*', async ctx => {
     await handle(ctx.req, ctx.res);
     ctx.respond = false;
