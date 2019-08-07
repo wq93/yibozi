@@ -30,6 +30,14 @@ module.exports = async (ctx) => {
           path: '/article/skill',
           asPath:'/article/skill',
           child: []
+        },
+        { id: 2003,
+          parent_id: 2,
+          key:'article/timeline',
+          name: '时间轴',
+          path: '/article/timeline',
+          asPath:'/article/timeline',
+          child: []
         }
       ]
     },
