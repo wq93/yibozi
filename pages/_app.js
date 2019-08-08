@@ -1,11 +1,11 @@
-import App, {Container} from 'next/app';
-import {ThemeProvider} from 'styled-components';
-import {Provider} from 'react-redux';
+import App, { Container } from 'next/app';
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
-import { GlobalStyle, defaultTheme, isServer } from '../utils';
+import { GlobalStyle, defaultTheme, isServer, restStyle } from '../utils';
 import initStore from '../store';
 import { fetchNavigationList } from '../store/navigation';
 
@@ -37,11 +37,12 @@ class CustomApp extends App {
     Router.onRouteChangeError = () => NProgress.done();
     const {Component, pageProps, store} = this.props;
     return (
-      <ThemeProvider theme={defaultTheme}>
+      <ThemeProvider theme={ defaultTheme }>
         <Container>
           <Provider store={store}>
             <Component {...pageProps} />
             <GlobalStyle></GlobalStyle>
+            <restStyle></restStyle>
           </Provider>
         </Container>
       </ThemeProvider>

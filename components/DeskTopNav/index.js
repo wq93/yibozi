@@ -7,7 +7,7 @@ import { withRouter } from 'next/router';
 
 import Styled from './index.style';
 
-const { SubMenu, Item, ItemGroup } = Menu;
+const { SubMenu, Item } = Menu;
 
 const DeskTopNav = ({ navigation, router }) => {
   // 清除asPath的首字符'/'
@@ -19,7 +19,7 @@ const DeskTopNav = ({ navigation, router }) => {
         const { child, name, key, asPath, path } = menu;
         if(child.length > 0){
           return  <SubMenu title={ name } key={ key }>
-            <ItemGroup>{ renderMenu(child)}</ItemGroup>
+            { renderMenu(child)}
           </SubMenu>;
         }else{
           return <Item key={ key }>

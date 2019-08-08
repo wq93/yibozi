@@ -4,14 +4,14 @@ import Head from 'next/head';
 
 import Style from './index.style';
 
-const Index = ({ testList }) => {
+const Index = () => {
   return (
     <Layout>
       <Head>
         <title>YIBOZI</title>
       </Head>
       <Style>
-        { testList.join(',') }
+
       </Style>
     </Layout>
   );

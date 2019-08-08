@@ -3,6 +3,7 @@
  */
 
 export default {
-  mainColor: '#FFE256',
-  fontColor: '#111'
+  mainColor: '#99bf35',
+  titleColor: '#535353',
+  fontColor: '#5e5e5e',
 };
