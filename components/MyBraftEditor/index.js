@@ -3,6 +3,8 @@ import React from 'react';
 import BraftEditor from 'braft-editor';
 import { Form, Input, Button, Select } from 'antd';
 
+import { uploadFn } from '../../utils';
+
 class FormDemo extends React.Component {
 
   componentDidMount() {
@@ -74,8 +76,8 @@ class FormDemo extends React.Component {
               <Select
                 placeholder="请选择类别"
                 onChange={ this.handleSelectTypeChange }>
-                <Select.Option value="live">生活</Select.Option>
-                <Select.Option value="skill">技术</Select.Option>
+                <Select.Option value="0">生活</Select.Option>
+                <Select.Option value="1">技术</Select.Option>
               </Select>,
             ) }
           </Form.Item>

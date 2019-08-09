@@ -1,14 +1,15 @@
-const { GoodsMolel } = require('../../models');
+const { ArticleMolel } = require('../../models');
 const { common } = require('../../utils');
 const findCollectionData = common.findCollectionData;
 
 module.exports = async (ctx) => {
-  const { displayName } = ctx.request.body;
+
+  const { title, type, description, content } = ctx.request.body;
 
   try {
-    if (displayName) {
+    if (title && type && content) {
       // 避免重复添加
-      const listByUuid = await findCollectionData(GoodsMolel, { displayName });
+      const listByUuid = await findCollectionData(ArticleMolel, { title });
       if (listByUuid.length) {
         ctx.state = {
           code: -3,
@@ -18,13 +19,17 @@ module.exports = async (ctx) => {
         };
         return false;
       } else {
+        const createTime = Date.now();
+        const updateTime = null;
         // 创建新数据
-        let good = new GoodsMolel({ displayName });
-        await good.save();
+        const article = new ArticleMolel(
+          { title, type, createTime, updateTime, description, content }
+        );
+        await article.save();
         ctx.state = {
           code: 0,
           data: {
-            good,
+            article,
             msg: 'success',
           }
         };
