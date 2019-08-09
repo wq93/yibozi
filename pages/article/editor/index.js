@@ -2,7 +2,9 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
+import { message } from 'antd';
 import { Layout } from '../../../containers';
+import { postArticle } from '../../../api';
 
 import Styled from './index.style';
 
@@ -18,8 +20,15 @@ const Editor = () => {
     const editorState = JSON.parse(localStorage.getItem('editorState') || '{}');
     setEditorState(editorState);
   }, []);
-  const handleSubmitEditorState = (submitData) => {
-    localStorage.setItem('editorState', submitData);
+
+  // 保持文章方法
+  const handleSubmitEditorState = async (submitData) => {
+    try {
+      const { code, data } = await postArticle(submitData);
+      code === 0 ? message.success('保存文章成功') : message.error(`保持失败! ${ data.msg }`);
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   return <Layout>

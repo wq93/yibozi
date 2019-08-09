@@ -38,7 +38,7 @@ class FormDemo extends React.Component {
           content: content.toRAW() // or values.content.toHTML()
         };
         // 保持数据回传父组件
-        handleSubmitEditorState(JSON.stringify(submitData));
+        handleSubmitEditorState(submitData);
       }
     });
 

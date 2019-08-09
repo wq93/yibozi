@@ -14,6 +14,7 @@ module.exports = async (ctx) => {
       id: 2,
       parent_id: 0,
       name: '博文',
+      key:'article',
       path: '/article',
       asPath:'/article',
       child: [

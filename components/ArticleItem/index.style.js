@@ -9,6 +9,7 @@ export default styled.li`
       }
       .article-item-desc {
         margin: 8px 0 16px 0;
+        min-height: 23px;
         color: ${ props => props.theme.fontColor };
       }
       .right-bars {

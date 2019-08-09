@@ -11,7 +11,7 @@ module.exports = async (ctx) => {
       }
     };
   }catch (e) {
-    ctx.state = {
+    ctx.error = {
       code: -1,
       data: {
         errorInfo: e,

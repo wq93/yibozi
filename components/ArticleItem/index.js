@@ -4,14 +4,12 @@ import { Card, Icon } from 'antd';
 
 import Styled from './index.style';
 
-const ArticleItem = () => {
+const ArticleItem = ({ uuid, title, type, createTime, updateTime, description }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(function persistForm() {
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  });
+    uuid && setLoading(false);
+  }, []);
   return (
     <Styled>
       <Card
@@ -22,18 +20,18 @@ const ArticleItem = () => {
         <div className='article-item-top'>
           <Icon type='read' className='article-title' />
           <Link href=''  as=''>
-            <a>My article</a>
+            <a>{ title }</a>
           </Link>
           <p className='right-bars'>
             <Icon type='bars' />
           </p>
         </div>
         <div className='article-item-desc'>
-          这是这个文章的描述
+          { description || ''}
         </div>
         <div className='tips'>
           <Icon type="pushpin" theme="twoTone" twoToneColor="#2c3e50" />&nbsp;&nbsp;
-          <span>2019-08-09 08:08</span>
+          <span>{ updateTime || createTime }</span>
         </div>
       </Card>
     </Styled>
