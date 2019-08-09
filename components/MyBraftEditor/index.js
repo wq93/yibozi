@@ -3,8 +3,6 @@ import React from 'react';
 import BraftEditor from 'braft-editor';
 import { Form, Input, Button, Select } from 'antd';
 
-import { uploadFn } from '../../utils';
-
 class FormDemo extends React.Component {
 
   componentDidMount() {
