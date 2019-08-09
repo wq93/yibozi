@@ -1,6 +1,6 @@
 import Style from './index.style';
-import { Layout } from '../../../containers';
-import { ArticleItem } from '../../../components';
+import { Layout } from '../../containers';
+import { ArticleItem } from '../../components';
 
 const live = () => {
   return (
@@ -22,4 +22,3 @@ const live = () => {
 };
 
 export default live;
-

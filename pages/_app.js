@@ -5,7 +5,7 @@ import withRedux from 'next-redux-wrapper';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
-import { GlobalStyle, defaultTheme, isServer, restStyle } from '../utils';
+import { GlobalStyle, defaultTheme, isServer } from '../utils';
 import initStore from '../store';
 import { fetchNavigationList } from '../store/navigation';
 
@@ -42,7 +42,6 @@ class CustomApp extends App {
           <Provider store={store}>
             <Component {...pageProps} />
             <GlobalStyle></GlobalStyle>
-            <restStyle></restStyle>
           </Provider>
         </Container>
       </ThemeProvider>

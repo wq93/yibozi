@@ -9,4 +9,3 @@ export  { default as GlobalStyle } from './globalStyle';
 export  { default as defaultTheme } from './defaultTheme';
 export  { default as isServer } from './isServer';
 export  { default as apiConfig } from './api.config';
-export  { default as restStyle } from './restStyle';
