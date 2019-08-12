@@ -10,3 +10,4 @@ export  { default as defaultTheme } from './defaultTheme';
 export  { default as isServer } from './isServer';
 export  { default as apiConfig } from './api.config';
 export  { default as uploadFn } from './uploadFn';
+export  { default as formatDate } from './formatDate';

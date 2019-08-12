@@ -1,6 +1,7 @@
 import { fetchArticle } from '../../api';
 import { Layout } from '../../containers';
 import { ArticleItem } from '../../components';
+
 import Style from './index.style';
 
 const Live = ({ articleList = [] }) => {
