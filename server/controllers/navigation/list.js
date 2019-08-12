@@ -6,8 +6,8 @@ module.exports = async (ctx) => {
       parent_id: 0,
       name: '首页',
       key:'home',
-      path: '/home',
-      asPath:'/',
+      path: '/',
+      asPath:'/home',
       child: []
     },
     {

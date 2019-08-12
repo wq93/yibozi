@@ -23,4 +23,7 @@ router.get('/api/article', controllers.article.list );
 /* 添加文章 */
 router.post('/api/article', controllers.article.add );
 
+/* 删除文章 */
+router.delete('/api/article/:uuid', controllers.article.delete );
+
 module.exports = router;

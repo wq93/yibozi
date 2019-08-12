@@ -25,11 +25,15 @@ const ArticleItem = ({ uuid, title, type, createTime, updateTime, description })
         className='article-item-wrapper'>
         <div className='article-item-top'>
           <Icon type='read' className='article-title' />
-          <Link href=''  as=''>
+          <Link href='/article/[id]'  as={`/article/${uuid}`}>
             <a>{ title }</a>
           </Link>
           <p className='right-bars'>
-            <Icon type="edit" twoToneColor="#2c3e50"/>
+            <Link href='/article/editor/[id]'  as={`/article/editor/${uuid}`}>
+              <a>
+                <Icon type="edit" twoToneColor="#2c3e50"/>
+              </a>
+            </Link>
           </p>
         </div>
         <div className='article-item-desc'>

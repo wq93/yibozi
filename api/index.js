@@ -6,3 +6,4 @@ export default Fetch;
 export { default as fetchNavigation } from './fetchNavigation';
 export { default as fetchArticle } from './fetchArticle';
 export { default as postArticle } from './postArticle';
+export { default as deleteArticle } from './deleteArticle';

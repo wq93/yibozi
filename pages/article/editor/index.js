@@ -1,6 +1,7 @@
 // 编辑文章页面, 包括新增, 编辑
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import Router from 'next/router';
 
 import { message } from 'antd';
 import { Layout } from '../../../containers';
@@ -25,7 +26,12 @@ const Editor = () => {
   const handleSubmitEditorState = async (submitData) => {
     try {
       const { code, data } = await postArticle(submitData);
-      code === 0 ? message.success('保存文章成功') : message.error(`保持失败! ${ data.msg }`);
+      if(code === 0){
+        message.success('保存成功');
+        Router.push('/article');
+      }else {
+        message.error(`保存失败! ${ data.msg }`);
+      }
     } catch (error) {
       console.warn(error);
     }
