@@ -6,7 +6,7 @@ import { formatDate } from '../../utils';
 import Styled from './index.style';
 
 const ArticleItem = ({ uuid, title, type, createTime, updateTime, description }) => {
-  const [loading, setLoading] = useState(true);
+  const [ loading, setLoading ] = useState(true);
   const typeMap = {
     '0': '生活',
     '1': '技术',
@@ -24,12 +24,12 @@ const ArticleItem = ({ uuid, title, type, createTime, updateTime, description })
         loading={ loading }
         className='article-item-wrapper'>
         <div className='article-item-top'>
-          <Icon type='read' className='article-title' />
-          <Link href='/article/[id]'  as={`/article/${uuid}`}>
+          <Icon type='read' className='article-title'/>
+          <Link href='/article/[id]' as={ `/article/${ uuid }` }>
             <a>{ title }</a>
           </Link>
           <p className='right-bars'>
-            <Link href='/article/editor/[id]'  as={`/article/editor/${uuid}`}>
+            <Link href='/article/editor/[id]' as={ `/article/editor/${ uuid }` }>
               <a>
                 <Icon type="edit" twoToneColor="#2c3e50"/>
               </a>
@@ -37,14 +37,14 @@ const ArticleItem = ({ uuid, title, type, createTime, updateTime, description })
           </p>
         </div>
         <div className='article-item-desc'>
-          { description || ''}
+          { description || '' }
         </div>
         <div className='tips'>
-          <Icon type="pushpin" theme="twoTone" twoToneColor="#2c3e50" />&nbsp;
-          <span>来源{ typeMap[type] }</span>
+          <Icon type="pushpin" theme="twoTone" twoToneColor="#2c3e50"/>&nbsp;
+          <span>来源{ typeMap[ type ] }</span>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <Icon type="clock-circle" />&nbsp;
-          <span>{ showTime|| '暂无数据' }</span>
+          <Icon type="clock-circle"/>&nbsp;
+          <span>{ showTime || '暂无数据' }</span>
         </div>
       </Card>
     </Styled>

@@ -1,25 +1,36 @@
-import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
 import { Layout } from '../../../containers';
+import { fetchArticle } from '../../../api';
 
 import Style from './index.style';
 
-const ArticleCheck = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const DynamicTypographyNossr = dynamic(
+  import('../../../components/MyTypography'),
+  { ssr: false }
+);
 
-  console.log(id);
+const ArticleRead = ({ articleMap }) => {
   return (
     <Layout>
       <Style>
-        ArticleRead : {id}
+        <DynamicTypographyNossr { ...articleMap }/>
       </Style>
     </Layout>
   );
 };
 
-// ArticleEdit.getInitialProps = async (ctx) => {
-//
-// };
+ArticleRead.getInitialProps = async (ctx) => {
+  const { query: { id } } = ctx;
+  let articleMap = {};
 
-export default ArticleCheck;
+  try {
+    const { data } = await fetchArticle(id);
+    articleMap = data;
+  } catch (error) {
+    console.warn(error);
+  }
+  return { articleMap };
+};
+
+export default ArticleRead;

@@ -1,7 +1,7 @@
 import { Button, Empty } from 'antd';
 import Link from 'next/link';
 
-import { fetchArticle } from '../../api';
+import { fetchArticleList } from '../../api';
 import { Layout } from '../../containers';
 import { ArticleItem } from '../../components';
 
@@ -38,7 +38,7 @@ Live.getInitialProps = async () => {
   let articleList = [];
 
   try {
-    const { code, data } = await fetchArticle();
+    const { code, data } = await fetchArticleList();
     articleList = code === 0 ? data.list : [];
   } catch (error) {
     console.warn(error);

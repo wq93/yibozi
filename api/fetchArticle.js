@@ -1,5 +1,6 @@
 import Fetch from './Fetch';
 
-export default () => {
-  return Fetch.get('/article');
+export default id => {
+  console.log(id);
+  return Fetch.get(`/article/${ id }`);
 };

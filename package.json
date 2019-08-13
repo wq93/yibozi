@@ -2,7 +2,7 @@
   "name": "yibozi",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
@@ -26,7 +26,7 @@
     "nprogress": "^0.2.0",
     "null-loader": "^3.0.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react-dom": "^16.9.0",
     "react-no-ssr": "^1.1.0",
     "react-redux": "^7.0.2",
     "redux": "^4.0.1",
