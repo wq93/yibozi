@@ -11,6 +11,7 @@ const Index = () => {
         <title>YIBOZI</title>
       </Head>
       <Style>
+        home
       </Style>
     </Layout>
   );

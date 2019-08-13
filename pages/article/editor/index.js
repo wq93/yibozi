@@ -15,12 +15,11 @@ const DynamicBraftEditorNossr = dynamic(
 );
 
 const Editor = () => {
-  const [ editorState, setEditorState ] = useState(null);
+  const [ editorState = {}, setEditorState ] = useState({});
   // useEffect只在客户端调用
-  useEffect(() => {
-    const editorState = JSON.parse(localStorage.getItem('editorState') || '{}');
-    setEditorState(editorState);
-  }, []);
+  // useEffect(() => {
+  //   setEditorState();
+  // }, []);
 
   // 保持文章方法
   const handleSubmitEditorState = async (submitData) => {

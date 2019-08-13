@@ -5,6 +5,7 @@ export  default styled.div`
   flex-direction: column;
    #main-content {
     min-height: calc(100vh - 171px);
+    padding: 32px 20px 0 20px;
     border-top: 1px solid rgb(231,231,231);
     border-bottom: 1px solid rgb(231,231,231);
    }

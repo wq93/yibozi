@@ -13,7 +13,7 @@ module.exports = async (ctx) => {
     {
       id: 2,
       parent_id: 0,
-      name: '博文',
+      name: '文章',
       key:'article',
       path: '/article',
       asPath:'/article',
