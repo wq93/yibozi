@@ -26,6 +26,9 @@ router.get('/api/article/:uuid', controllers.article.check );
 /* 添加文章 */
 router.post('/api/article', controllers.article.add );
 
+/* 编辑文章 */
+router.put('/api/article/:uuid', controllers.article.update );
+
 /* 删除文章 */
 router.delete('/api/article/:uuid', controllers.article.delete );
 

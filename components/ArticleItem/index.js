@@ -41,7 +41,7 @@ const ArticleItem = ({ uuid, title, type, createTime, updateTime, description })
         </div>
         <div className='tips'>
           <Icon type="pushpin" theme="twoTone" twoToneColor="#2c3e50"/>&nbsp;
-          <span>来源{ typeMap[ type ] }</span>
+          <span>{ typeMap[ type ] }</span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <Icon type="clock-circle"/>&nbsp;
           <span>{ showTime || '暂无数据' }</span>
