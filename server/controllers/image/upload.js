@@ -27,6 +27,12 @@ module.exports = async ctx => {
     const updateTime = null;
 
     // 创建新数据
+    /**
+     * 创建新数据
+     * 包括:
+     *  title: 标题, type: 类型, description: 描述, uuid: id,
+     *  createTime: 创建时间, updateTime: 修改时间, filename: 文件名称
+     */
     const Image = new ImageMolel(
       { title, type, description, uuid, createTime, updateTime, filename: saveFilename }
     );
