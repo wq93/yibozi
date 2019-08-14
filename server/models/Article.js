@@ -11,7 +11,7 @@ module.exports = mongoose.model('article',
     'type': { type: String }, // 文章类别
     'createTime': { type: Number }, // 创建时间
     'updateTime': { type: Number }, // 修改时间
-    'description': { type: String }, // 文章内容
-    'content': { type: String }, // 名称
+    'description': { type: String }, // 文章描述
+    'content': { type: String }, // 文章内容
   })
 );

@@ -1,7 +1,8 @@
 const Koa = require('koa');
 const next = require('next');
-const bodyParser = require('koa-bodyparser');
+
 const serve = require('koa-static');
+const koaBody = require('koa-body');
 
 const router = require('./server/routes');
 const response = require('./server/middlewares/reponse');
@@ -9,7 +10,7 @@ const db = require('./server/utils/db');
 
 const port = parseInt(process.env.PORT, 10) || 8000;
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({dev});
+const app = next({ dev });
 const handle = app.getRequestHandler();
 
 // 连接线上MongoDB数据库
@@ -34,11 +35,17 @@ app.prepare().then(() => {
       await next();
     })
     .use(serve('public'))
+    .use(koaBody({
+      multipart: true,
+      formidable: {
+        maxFileSize: 400 * 1024 * 1024    // 设置上传文件大小最大限制，默认2M
+      }
+    }))
     .use(response)
-    .use(bodyParser())// 解析请求体
     .use(router.routes())
+    .use(router.allowedMethods())
     .listen(port, () => {
-      console.log(`> app running at PORT:${port}`);
+      console.log(`> app running at PORT:${ port }`);
     });
 
 });

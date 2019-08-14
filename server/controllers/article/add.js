@@ -3,9 +3,7 @@ const { common } = require('../../utils');
 const findCollectionData = common.findCollectionData;
 
 module.exports = async (ctx) => {
-
   const { title, type, description, content } = ctx.request.body;
-
   try {
     if (title && type && content) {
       // 避免重复添加
