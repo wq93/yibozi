@@ -35,4 +35,7 @@ router.delete('/api/article/:uuid', controllers.article.delete );
 /* 上传图片 */
 router.post('/api/image/upload', controllers.image.upload );
 
+/* 图片链接 */
+router.get('/api/image', controllers.image.list );
+
 module.exports = router;

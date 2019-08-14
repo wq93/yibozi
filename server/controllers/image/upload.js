@@ -28,7 +28,7 @@ module.exports = async ctx => {
 
     // 创建新数据
     const Image = new ImageMolel(
-      { title, type, description, uuid, createTime, updateTime, link: `static/images/${ saveFilename }` }
+      { title, type, description, uuid, createTime, updateTime, filename: saveFilename }
     );
 
     try {

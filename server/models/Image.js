@@ -7,6 +7,7 @@ module.exports = mongoose.model('image',
     'uuid': { type: String }, // id
     'type': { type: String }, // 类别
     'title': { type: String }, // 标题
+    'filename': { type: String }, // 标题
     'description': { type: String }, // 描述
     'link': { type: String }, // 链接
     'createTime': { type: Number }, // 创建时间
