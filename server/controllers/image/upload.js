@@ -14,8 +14,8 @@ module.exports = async ctx => {
   if (file) {
     const reader = fs.createReadStream(file.path);    // 创建可读流
     const ext = file.name.split('.').pop();        // 获取上传文件扩展名
-    // 创建文件夹
-    const uploadPath = path.join(__dirname, '../../static/images');
+    // 创建文件夹(根目录的static/cache路径下)
+    const uploadPath = path.join(__dirname, '../../../static/cache/images');
     const flag = fs.existsSync(uploadPath); // 判断文件夹是否存在
     // 同步创建多级文件夹
     if (!flag) mkdirp.sync(uploadPath);
@@ -25,7 +25,7 @@ module.exports = async ctx => {
 
     const createTime = Date.now();
     const updateTime = null;
-
+    const imagePath = `/static/cache/images/${ saveFilename }`;
     // 创建新数据
     /**
      * 创建新数据
@@ -33,9 +33,17 @@ module.exports = async ctx => {
      *  title: 标题, type: 类型, description: 描述, uuid: id,
      *  createTime: 创建时间, updateTime: 修改时间, filename: 文件名称
      */
-    const Image = new ImageMolel(
-      { title, type, description, uuid, createTime, updateTime, filename: saveFilename }
-    );
+    const Image =
+      new ImageMolel({
+        title,
+        type,
+        description,
+        uuid,
+        createTime,
+        updateTime,
+        path: imagePath,
+        filename: saveFilename
+      });
 
     try {
       // 可读流通过管道写入可写流

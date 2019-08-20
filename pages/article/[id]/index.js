@@ -1,20 +1,22 @@
-import dynamic from 'next/dynamic';
+import { Typography } from 'antd';
 
 import { Layout } from '../../../containers';
 import { fetchArticle } from '../../../api';
 
 import Style from './index.style';
 
-const DynamicTypographyNossr = dynamic(
-  import('../../../components/MyTypography'),
-  { ssr: false }
-);
+const { Title } = Typography;
 
 const ArticleRead = ({ articleMap }) => {
+  const { title, content } = articleMap;
+
   return (
     <Layout>
       <Style>
-        <DynamicTypographyNossr { ...articleMap }/>
+        <Typography>
+          <Title>{ title }</Title>
+          <div dangerouslySetInnerHTML={{'__html': content}} />
+        </Typography>
       </Style>
     </Layout>
   );

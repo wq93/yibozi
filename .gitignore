@@ -5,4 +5,4 @@ node_modules/
 .idea/
 config.js
 server/utils/db.js
-server/static
+static/cache

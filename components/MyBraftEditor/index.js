@@ -2,6 +2,7 @@ import 'braft-editor/dist/index.css';
 import React from 'react';
 import BraftEditor from 'braft-editor';
 import { Form, Input, Button, Select } from 'antd';
+import { postUpload } from '../../api';
 
 class FormDemo extends React.Component {
 
@@ -33,7 +34,7 @@ class FormDemo extends React.Component {
           title,
           type,
           description,
-          content: content.toRAW() // or values.content.toHTML()
+          content: content.toHTML() // or values.content.toHTML()
         };
         // 保持数据回传父组件
         handleSubmitEditorState(submitData);
@@ -45,6 +46,28 @@ class FormDemo extends React.Component {
   handleSelectTypeChange = value => {
     this.props.form.setFieldsValue({ value });
   };
+
+  // 上传文件方法, 返回文件地址
+  myUploadFn = async (param) => {
+    const formData = new FormData();
+    formData.append('file', param.file);
+
+    try {
+      const { data, code } = await postUpload(formData);
+      if(code === 0){
+        param.success({
+          url: `${location.origin + data.Image.path}`,
+        });
+      }else{
+        // 上传发生错误时调用param.error
+        param.error({
+          msg: data.msg,
+        });
+      }
+    } catch (error) {
+      console.warn(error);
+    }
+  }
 
   render() {
 
@@ -105,6 +128,7 @@ class FormDemo extends React.Component {
               <BraftEditor
                 className="my-editor"
                 controls={ controls }
+                media={ { uploadFn: this.myUploadFn } }
                 placeholder="请输入正文内容"
               />
             ) }

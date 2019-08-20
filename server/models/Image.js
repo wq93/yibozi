@@ -9,7 +9,7 @@ module.exports = mongoose.model('image',
     'title': { type: String }, // 标题
     'filename': { type: String }, // 标题
     'description': { type: String }, // 描述
-    'link': { type: String }, // 链接
+    'path': { type: String }, // 链接
     'createTime': { type: Number }, // 创建时间
     'updateTime': { type: Number }, // 修改时间
   })
