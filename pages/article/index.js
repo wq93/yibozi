@@ -1,13 +1,13 @@
 import { Button, Empty } from 'antd';
 import Link from 'next/link';
 
-import { fetchArticleList } from '../../api';
+import { fetchList } from '../../api';
 import { Layout } from '../../containers';
 import { ArticleItem } from '../../components';
 
 import Style from './index.style';
 
-const Live = ({ articleList = [] }) => {
+const Article = ({ articleList = [] }) => {
   return (
     <Layout>
       <Style>
@@ -34,11 +34,11 @@ const Live = ({ articleList = [] }) => {
   );
 };
 
-Live.getInitialProps = async () => {
+Article.getInitialProps = async () => {
   let articleList = [];
 
   try {
-    const { code, data } = await fetchArticleList();
+    const { code, data } = await fetchList('/article');
     articleList = code === 0 ? data.list : [];
   } catch (error) {
     console.warn(error);
@@ -46,4 +46,5 @@ Live.getInitialProps = async () => {
 
   return { articleList };
 };
-export default Live;
+
+export default Article;

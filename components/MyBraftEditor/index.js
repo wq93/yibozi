@@ -65,6 +65,10 @@ class FormDemo extends React.Component {
         });
       }
     } catch (error) {
+      // 上传发生错误时调用param.error
+      param.error({
+        msg: '上传失败',
+      });
       console.warn(error);
     }
   }

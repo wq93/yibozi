@@ -32,10 +32,13 @@ router.put('/api/article/:uuid', controllers.article.update );
 /* 删除文章 */
 router.delete('/api/article/:uuid', controllers.article.delete );
 
-/* 上传图片 */
+/* 图片上传 */
 router.post('/api/image/upload', controllers.image.upload );
 
-/* 图片链接 */
+/* 图片列表 */
 router.get('/api/image', controllers.image.list );
+
+/* 图片删除 */
+router.delete('/api/image/:uuid', controllers.image.delete );
 
 module.exports = router;
