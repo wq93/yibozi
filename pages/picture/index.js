@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal } from 'antd';
+import { Modal, Upload, message, Button, Icon } from 'antd';
 import { Layout } from '../../containers';
 import { fetchList } from '../../api';
 import { PictureItem } from '../../components';
@@ -36,7 +36,7 @@ const Picture = ({ pictureList }) => {
           await deletePicture(id);
         } catch (e) {
           console.warn(e);
-        }finally {
+        } finally {
           const pictureList = await fetchListFn('image');
           setPictures(pictureList);
         }
@@ -44,13 +44,39 @@ const Picture = ({ pictureList }) => {
     });
   };
 
+  const uploadProps = {
+    name: 'file',
+    action: '/api/image/upload',
+    supportServerRender: true,
+    onChange: async (info) => {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file);
+      }
+      if (info.file.status === 'done') {
+        message.success(`${ info.file.name } 上传成功`);
+        // 刷新列表
+        const pictureList = await fetchListFn('image');
+        setPictures(pictureList);
+      } else if (info.file.status === 'error') {
+        message.error(`${ info.file.name } 上传失败`);
+      }
+    },
+  };
+
   return (
     <Layout>
       <Style>
-        { pictures.map(picture =>
-          <PictureItem
-            key={ picture.uuid } { ...picture }
-            handleDeletePicture={ handleDeletePicture }/>) }
+        <Upload { ...uploadProps } className='upload-wrapper'>
+          <Button type="primary" ghost block>
+            <Icon type="upload"/> 上传图片
+          </Button>
+        </Upload>
+        <ul className='picture-list'>
+          { pictures.map(picture =>
+            <PictureItem
+              key={ picture.uuid } { ...picture }
+              handleDeletePicture={ handleDeletePicture }/>) }
+        </ul>
       </Style>
       <GlobalStyle/>
     </Layout>
