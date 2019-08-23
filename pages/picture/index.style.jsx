@@ -19,9 +19,7 @@ export default styled.div`
     }
   }
   ul.picture-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 45px;  
+    columns: 5;
+    padding: 25px 0;  
   }
 `;
