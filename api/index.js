@@ -10,3 +10,4 @@ export { default as postArticle } from './postArticle';
 export { default as putArticle } from './putArticle';
 export { default as deleteArticle } from './deleteArticle';
 export { default as postUpload } from './postUpload';
+export { default as deletePicture } from './deletePicture';

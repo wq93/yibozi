@@ -56,7 +56,7 @@ class FormDemo extends React.Component {
       const { data, code } = await postUpload(formData);
       if(code === 0){
         param.success({
-          url: `${location.origin + data.Image.path}`,
+          url: data.Image.path,
         });
       }else{
         // 上传发生错误时调用param.error

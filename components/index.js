@@ -8,4 +8,5 @@ export { default as DeskTopHeader } from './DeskTopHeader';
 export { default as DeskTopNav } from './DeskTopNav';
 export { default as Footer } from './Footer';
 export { default as ArticleItem } from './ArticleItem';
+export { default as PictureItem } from './PictureItem';
 
