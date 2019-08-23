@@ -11,7 +11,7 @@ const Article = ({ articleList = [] }) => {
   return (
     <Layout>
       <Style>
-        <Link href='/article/editor'  as='/article/editor'>
+        <Link href='/article/editor' as='/article/editor'>
           <a>
             <Button type="dashed" icon="highlight" block>写文章</Button>
           </a>
@@ -22,11 +22,11 @@ const Article = ({ articleList = [] }) => {
             <ul className='article-list'>
               {
                 articleList.map(article => {
-                  return <ArticleItem {...article}/>;
+                  return <ArticleItem key={ article.uuid } { ...article }/>;
                 })
               }
             </ul> :
-            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}/>
+            <Empty image={ Empty.PRESENTED_IMAGE_SIMPLE }/>
         }
 
       </Style>
