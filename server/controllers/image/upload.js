@@ -7,7 +7,7 @@ const { ImageMolel } = require('../../models');
 // 上传文件
 module.exports = async ctx => {
   const file = ctx.request.files.file;
-  const { type, title, description } = ctx.request.body;
+  const { type, title, description, width, height, pictureScale } = ctx.request.body;
 
   const uuid = createuuid(8, 16); // 唯一id
 
@@ -41,6 +41,9 @@ module.exports = async ctx => {
         uuid,
         createTime,
         updateTime,
+        width,
+        height,
+        pictureScale,
         path: imagePath,
         filename: saveFilename
       });

@@ -38,4 +38,8 @@ export default createGlobalStyle`
     /* 让移动端滑动更流畅一些吧！ */
     -webkit-overflow-scrolling: touch;
   }
+  .global-loading {
+    background: url('../static/img/loading.gif');
+    background-size: cover;
+  }
 `;

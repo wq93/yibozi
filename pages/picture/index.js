@@ -23,6 +23,11 @@ const fetchListFn = async (url) => {
 const Picture = ({ pictureList }) => {
   const [ pictures = [], setPictures ] = useState(pictureList);
 
+  // 关于图片宽高信息
+  let pictureScale = '';
+  let width = 0;
+  let height = 0;
+
   // 点击删除法
   const handleDeletePicture = (id) => {
     confirm({
@@ -46,7 +51,7 @@ const Picture = ({ pictureList }) => {
 
   const uploadProps = {
     name: 'file',
-    action: '/api/image/upload',
+    action: `/api/image/upload`,
     supportServerRender: true,
     onChange: async (info) => {
       if (info.file.status !== 'uploading') {
@@ -61,6 +66,26 @@ const Picture = ({ pictureList }) => {
         message.error(`${ info.file.name } 上传失败`);
       }
     },
+    beforeUpload: (file) => {
+      const reader = new FileReader();
+      return new Promise((resolve, reject) => {
+        reader.addEventListener("load", () => {
+          const image = new Image();
+          image.addEventListener("load", async () => {
+            pictureScale = (image.height * 100 / image.width).toFixed(2) + '%';
+            width = image.width;
+            height = image.height;
+            resolve();
+          });
+          image.src = reader.result;
+        });
+
+        reader.readAsDataURL(file);
+      });
+    },
+    data: () => ({
+      pictureScale, width, height,
+    }),
   };
 
   return (

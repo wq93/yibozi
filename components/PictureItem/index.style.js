@@ -12,10 +12,16 @@ export default styled.li`
      overflow: hidden;
      cursor: pointer;
      img {
-       display: inline-block;
+       position: absolute;
+       top: 0;
+       left: 0;
        width: 100%;
        padding: 2px;
        border: 1px dashed #B4A078;
+     }
+     .img-box {
+       position: relative;
+       padding-top: ${ props => props.pictureScale };
      }
    }
   
