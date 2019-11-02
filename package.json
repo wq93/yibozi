@@ -20,7 +20,7 @@
     "koa-router": "^7.1.0",
     "koa-static": "^5.0.0",
     "mkdirp": "^0.5.1",
-    "mongoose": "^5.4.20",
+    "mongoose": "^5.7.5",
     "next": "^9.0.3",
     "next-redux-wrapper": "^3.0.0-alpha.2",
     "nodemon": "^1.18.10",
